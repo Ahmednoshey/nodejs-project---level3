@@ -1,0 +1,56 @@
+
+<nav class="navbar bg-body-tertiary">
+  <div
+    class="container-fluid justify-content-center justify-content-md-between"
+    >
+    <a class="navbar-brand fw-medium fs-3 mb-1 mb-md-0"
+      >Cheques<sup> under </sup>collection </a
+    >
+
+
+    <form action="/search" method="post" class="d-flex" role="search">
+      <input
+      name="Search_Date"
+      style="width: 200px;"
+      id="searchbtn"
+        class="form-control me-2"
+        type="date"
+        placeholder="Search"
+        aria-label="Search"
+        onchange="getdates()"
+      />
+
+      <button class="btn btn-outline-success"  style="width: 150px;" type="submit">
+        Search Date
+      </button>
+    </form>
+
+      <form action="/search_Branch" method="post" class="d-flex" role="search">
+
+        <input
+        name="Search_Date"
+        style="width: 200px; display: none;"
+        id="SearchBranch"
+          class="form-control me-2"
+          type="date"
+          placeholder="Search"
+          aria-label="Search"
+        
+        />
+
+      <select
+      name="Search_Branch"
+      style="width: 200px;"
+       id="searchbrnchbtn" 
+       class="form-select form-control me-2">
+        <option selected hidden disabled>Choose Branch ...</option>
+        <option>نور العاشر</option>
+        <option>اكتوبر</option>
+      </select>
+
+        <button class="btn btn-outline-success"  style="width: 170px; margin-left: 5px;" type="submit">
+        Search Branch
+      </button>
+    </form>
+  </div>
+</nav>

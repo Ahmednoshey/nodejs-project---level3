@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <script src="../js/color-modes.js"></script>
+    <link
+      rel="stylesheet"
+      href="../bootstrap-icons-1.10.5/font/bootstrap-icons.min.css"
+    />
+    <link rel="shortcut icon" href="../img/57209070_2912465335460838_3655113767005454336_n.jpg" type="image/x-icon">
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.112.5" />
+    <title>Edit page</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+      form,input,select{
+        color: #fff !important;
+        font-weight: bold !important;
+      }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+    
+      .info{
+        position: relative;
+        padding-right: 100px;
+      }
+      .photobank{
+        position: absolute;
+        top: 200px;
+        left: -150px;
+  
+      }
+      .photobank img{
+        height: 400px;
+        border-radius: 10px;
+        width: 400px;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, 0.1);
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
+          inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link href="../css/sidebars.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/myStyle.css" />
+  </head>
+  <body>
+    <%- include('../components/themes.ejs') %>
+    
+
+    <main class="d-flex flex-nowrap">
+    
+      <%- include('../components/sidebar.ejs',{activepage:"edit"}) %>
+
+      <section class="w-100">
+        <nav class="navbar bg-body-tertiary">
+          <div
+            class="container-fluid justify-content-center justify-content-md-between"
+            >
+            <a class="navbar-brand fw-medium fs-3 mb-1 mb-md-0"
+              >Cheques<sup> under </sup>collection </a
+            >
+
+          </div>
+        </nav>
+
+
+        <nav class="px-2 mt-4 d-flex flex-wrap justify-content-between" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><%= obj.Customer %></li>
+          </ol>
+
+
+          <p class="me-md-5" id="logo"> <span class="fw-medium fs-6">Id :</span> <%= obj._id %></p>
+        </nav>
+
+
+
+
+
+
+
+
+        <form action="/edit/<%= obj._id %>?_method=PUT" method="post" class="mx-0 row gx-3 gy-4  info" dir="rtl">
+          <div class="col-md-12">
+            <label for="inputcust" class="form-label">العميل :</label>
+            <input
+              name="Customer"
+              placeholder="Customer"
+              type="text"
+              class="form-control"
+              id="inputcust"
+              value="<%= obj.Customer %>"
+            />
+          </div>
+
+      
+
+          <div class="col-md-6">
+            <label for="inputprice" class="form-label">المبلغ :</label>
+            <input
+              name="price"
+              placeholder="price"
+              type="number"
+              class="form-control"
+              id="inputprice"
+              value="<%= obj.price %>"
+              title=""
+              step="0.01"
+            />
+          </div>
+
+          <div class="col-md-6">
+            <label for="inputBank" class="form-label">البنك :</label>
+            <select id="inputBank" class="form-select" onchange="changeimg(this)" name="Bank" >
+              <option selected hidden disabled>Choose Bank ...</option>
+      <% const bankarr = ["abc شركة","abc منشأة","مصر شركة","مصر فردي",
+      "القاهرة شركة","القاهرة منشأة","cib","الاسكندرية شركة","الاسكندرية شخصي",
+      "قطر","الاهلي"] %>
+
+              <% bankarr.forEach(item => { %>
+                <option  <%=obj.Bank === item?"selected":null   %> value="<%= item %>"><%= item %></option>
+              <% }) %>
+            </select>
+          </div>
+<div>
+          <div class="col-md-6">
+            <label for="inputbranch" class="form-label">الفرع :</label>
+            <select id="inputbranch" class="form-select" name="Branch">
+              <option selected hidden disabled>Choose Branch ...</option>
+              <option <%=obj.Branch === "نور العاشر"?"selected":null   %>>نور العاشر</option>
+              <option <%=obj.Branch === "اكتوبر"?"selected":null   %>>اكتوبر</option>
+            </select>
+          </div>
+        </div>
+          
+        <div>
+          <div class="col-md-6">
+            <label for="inputdate1" class="form-label">تاريخ الايداع :</label>
+            <input
+            name="First_Date"
+              type="date"
+              class="form-control"
+              id="inputdate1"
+              value="<%= obj.First_Date %>"
+            />
+          </div>
+        </div>
+
+        <div>
+          <div class="col-md-6">
+            <label for="inputdate2" class="form-label">تاريخ التحصيل :</label>
+            <input
+            name="Second_Date"
+              type="date"
+              class="form-control"
+              id="inputdate2"
+              value="<%= obj.Second_Date %>"
+            />
+          </div>
+        </div>
+
+<div>
+          <div class="col-md-6">
+            <label for="inputhala" class="form-label">حالة الشيك :</label>
+            <select id="inputhala" class="form-select" name="Info">
+              <option selected hidden disabled>Choose Info ...</option>
+              <option <%=obj.Info === "تم التحصيل"?"selected":null   %>>تم التحصيل</option>
+              <option <%=obj.Info === "مرتد"?"selected":null   %>>مرتد</option>
+            </select>
+          </div>
+
+          
+            <div class="col-md-6 photobank">
+              <img src="../img/<%= obj.Bank %>.png" alt="" id="imgbank" name="Bank_Img">
+            </div>
+            <br>
+
+            <div class="col-12">
+            <button type="submit" class="btn btn-primary">
+              Update changes
+            </button>
+      
+
+            <button
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              type="button"
+              class="btn btn-danger"
+            >
+              Delete Customer
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Delete Customer
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">Are you sure you want to continue delete the customer?</div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <form action="/edit/<%= obj._id %>?_method=DELETE" method="post">
+              <button
+              type="submit" class="btn btn-danger">
+                Delete
+            </button>
+          </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    </main>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+
+    <script src="../js/sidebars.js"></script>
+    <script src="../js/main.js"></script>
+
+  </body>
+</html>

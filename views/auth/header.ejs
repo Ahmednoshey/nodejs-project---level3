@@ -1,0 +1,30 @@
+<header class="mb-auto" style="display: flex;justify-content: space-between;align-items: center;">
+  <div>
+    <h3 class=" mb-0 btn fs-2">
+      <a class="text-white fw-bold" style="text-decoration: none;" href="/">YMC</a>
+    </h3>
+    </div>
+    <nav class="nav nav-masthead" style="display: flex;align-items: center;">
+    <% if (user !== null) { %>
+      <h6>Wellcome: <%= user.UserName %></h6>
+      <a
+      style="margin-left: 10px;"
+        class="fw-bold btn  btn-light" 
+        aria-current="page"
+        href="/signout"
+        >Sign out</a
+      >
+    <% } %>
+
+<% if (user === null) { %>
+  <a
+  class="fw-bold btn <%= currentPage == "login"? "btn-light" : null %>"
+  aria-current="page"
+  href="/login"
+  >Login</a
+>
+<a class="btn fw-bold <%= currentPage == "signup"? "btn-light" : null %>" href="/register">sign up</a>
+</nav>
+<% } %>
+
+</header>
