@@ -44,7 +44,7 @@ class="position-relative d-flex flex-column flex-shrink-0 p-3 text-bg-dark sideb
     aria-expanded="false"
   >
     <img
-      src="../img/18119222_1690557987651585_1044614154366282350_n.jpg"
+      src="../img/profileimg.png"
       alt=""
       width="32"
       height="32"
@@ -55,11 +55,40 @@ class="position-relative d-flex flex-column flex-shrink-0 p-3 text-bg-dark sideb
   <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
     <li><a class="dropdown-item" href="#">New project...</a></li>
     <li><a class="dropdown-item" href="#">Settings</a></li>
-    <li><a class="dropdown-item" href="#">Profile</a></li>
+    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Profile Image</a></li>
     <li><hr class="dropdown-divider" /></li>
     <li><a class="dropdown-item" href="/signout">Sign out</a></li>
   </ul>
 </div>
 </div>
 
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Change Profile Image</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div  class="modal-body px-4" style="display: flex; justify-content: space-between; align-items: center;">
+          <label class="btn btn-secondary" for="INPUTFILE">
+            <i class="bi bi-plus"></i>
+            Upload Img</label>
+        <input style="display: none;" id="INPUTFILE" type="file">
+        <img id="IMGELEMENT" src="../img/profileimg.png" alt="" width="150" height="150" style="border-radius: 50%;">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <div class="b-example-divider b-example-vr"></div>
+<script>
+  INPUTFILE.addEventListener("change", (eo) => {
+  IMGELEMENT.src = URL.createObjectURL(eo.target.files[0])
+ })
+</script> 

@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router()
-const Mydata = require("../models/MydataSchema");
 const updateController = require("../controllers/updateController");
 const requireAuth = require('../middleware/middleware')
 const checkIfUser = require('../middleware/userData')

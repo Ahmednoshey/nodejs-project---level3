@@ -41,20 +41,24 @@ app.use(cookieParser())
 
 
 
-
+//home
+var jwt = require("jsonwebtoken");
 app.get("/home",requireAuth,checkIfUser,(req, res) => {
-  AuthUser.find()
-  .then((result) => {res.render("index",{arr:result,moment:moment})})
+  var decoded = jwt.verify(req.cookies.jwt, process.env.JWTSECRET_KEY);
+  AuthUser.findById(decoded.id)
+  .then((result) => {res.render("index",{arr:result.Data_Info,moment:moment})})
   .catch((err) => {console.log(err)})
  });
 
+ 
  app.get("/user/add.html",requireAuth,checkIfUser, (req, res) => {
  res.render("user/add")
   });
 
   
 
-  app.get("*",checkIfUser);   
+  app.get("*",checkIfUser);  
+  app.post("*",checkIfUser);  
 
   app.get("/",checkIfUser, (req, res) => {
     res.render("wellcome.ejs")

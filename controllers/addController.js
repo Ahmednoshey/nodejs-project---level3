@@ -1,7 +1,9 @@
 
-const Mydata = require("../models/MydataSchema");
+const AuthUser = require("../models/SignupSchema");
+var jwt = require("jsonwebtoken");
 const addRouting = (req, res) => {
-  Mydata.create(req.body)
+  var decoded = jwt.verify(req.cookies.jwt, process.env.JWTSECRET_KEY);
+  AuthUser.updateOne({_id:decoded.id},{ $push: { Data_Info: req.body} })
      .then( result => {
      res.redirect("/home");
      })

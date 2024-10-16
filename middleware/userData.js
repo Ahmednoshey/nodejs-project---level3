@@ -6,7 +6,7 @@ var jwt = require("jsonwebtoken");
 const checkIfUser = (req, res, next) => {
   const token = req.cookies.jwt;
   if (token) {
-    jwt.verify(token, "layan", async (err, decoded) => {
+    jwt.verify(token, process.env.JWTSECRET_KEY, async (err, decoded) => {
       if (err) {
         res.locals.user = null;
         next();
