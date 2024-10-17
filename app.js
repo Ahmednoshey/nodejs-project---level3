@@ -16,6 +16,7 @@ const adduserRoutes = require('./routes/adduserRoutes')
 const loginRoutes = require('./routes/loginRoutes')
 const requireAuth = require('./middleware/middleware')
 const checkIfUser = require('./middleware/userData')
+const updateProfileRouter=require('./routes/updateProfileRouter')
 
 //Auto refresh
 const path = require("path");
@@ -106,6 +107,7 @@ app.use(deleteRoutes)
 app.use(addRoutes)
 app.use(updateRoutes) 
 app.use(viewRoutes) 
+app.use(updateProfileRouter) 
 
 
 

@@ -5,6 +5,7 @@ const authuserSchema = new Schema({
   UserName: String,
   Email: String,
   Password: String,
+  profileImage:String,
   Data_Info:[{
     Customer: String,
     price: Number,
@@ -13,8 +14,10 @@ const authuserSchema = new Schema({
     First_Date: String,
     Second_Date: String,
     Info: String,
-  },{ timestamps: true }]
-},{ timestamps: true });
+    createdAt:Date,
+    updatedAt:{ type: Date, default: Date.now },
+  }]
+});
 authuserSchema.pre("save", async function (next) {
   const salt = await bcrypt.genSalt();
   this.Password = await bcrypt.hash(this.Password, salt);
