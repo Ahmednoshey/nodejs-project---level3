@@ -7,8 +7,10 @@ const addRouting = (req, res) => {
      Data_Info:{
       Customer: req.body.Customer,
       price: req.body.price,
+      price2: req.body.price2,
       Bank: req.body.Bank,
       Branch: req.body.Branch,
+      Memory: req.body.Memory,
       First_Date: req.body.First_Date,
       Second_Date: req.body.Second_Date,
       Info: req.body.Info,

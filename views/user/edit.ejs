@@ -172,8 +172,8 @@
 
       
 
-          <div class="col-md-6">
-            <label for="inputprice" class="form-label">المبلغ :</label>
+          <div class="col-md-3">
+            <label for="inputprice" class="form-label">سعر الشراء :</label>
             <input
               name="price"
               placeholder="price"
@@ -186,33 +186,66 @@
             />
           </div>
 
-          <div class="col-md-6">
-            <label for="inputBank" class="form-label">البنك :</label>
-            <select id="inputBank" class="form-select" onchange="changeimg(this)" name="Bank" >
-              <option selected hidden disabled>Choose Bank ...</option>
-      <% const bankarr = ["abc شركة","abc منشأة","مصر شركة","مصر فردي",
-      "القاهرة شركة","القاهرة منشأة","cib","الاسكندرية شركة","الاسكندرية شخصي",
-      "قطر","الاهلي"] %>
+          <div class="col-md-3" style="margin-right: 160px;">
+            <label for="inputprice" class="form-label">سعر البيع :</label>
+            <input
+            required
+            name="price2"
+              placeholder="price"
+              type="number"
+              class="form-control"
+              id="inputprice"
+              value="<%= obj.price2 %>"
+              title=""
+              step="0.01"
+            />
+          </div>
+
+          <div class="col-md-3" style="margin-right: 100px;">
+            <label for="inputBank" class="form-label">الموديل :</label>
+            <select id="inputBank" class="form-select" onchange="changeimg(this)" name="Bank" required>
+              <option selected hidden disabled>Choose Model ...</option>
+      <% const bankarr = ["Opoo","Samsung","Realmy","Readmy",
+      "Iphone"] %>
 
               <% bankarr.forEach(item => { %>
                 <option  <%=obj.Bank === item?"selected":null   %> value="<%= item %>"><%= item %></option>
               <% }) %>
             </select>
           </div>
-<div>
-          <div class="col-md-6">
-            <label for="inputbranch" class="form-label">الفرع :</label>
+
+  <div style="display: flex; align-items: center;">
+          <div class="col-md-2">
+            <label for="inputbranch" class="form-label">الرام :</label>
             <select id="inputbranch" class="form-select" name="Branch">
-              <option selected hidden disabled>Choose Branch ...</option>
-              <option <%=obj.Branch === "نور العاشر"?"selected":null   %>>نور العاشر</option>
-              <option <%=obj.Branch === "اكتوبر"?"selected":null   %>>اكتوبر</option>
+              <option selected hidden disabled>Choose RAM ...</option>
+              <option <%=obj.Branch === 1?"selected":null   %>>1</option>
+              <option <%=obj.Branch === 2?"selected":null   %>>2</option>
+              <option <%=obj.Branch === 3?"selected":null   %>>3</option>
+              <option <%=obj.Branch === 4?"selected":null   %>>4</option>
+              <option <%=obj.Branch === 6?"selected":null   %>>6</option>
+              <option <%=obj.Branch === 8?"selected":null   %>>8</option>
+              <option <%=obj.Branch === 12?"selected":null   %>>12</option>
+            </select>
+          </div>
+      
+
+        <div class="col-md-2" style="margin-right: 190px;">
+            <label for="inputbranch" class="form-label">الذاكرة :</label>
+            <select id="inputbranch" class="form-select" name="Memory" required>
+              <option selected hidden disabled>Choose Memory ...</option>
+              <option <%=obj.Memory === 16?"selected":null   %>>16</option>
+              <option <%=obj.Memory === 32?"selected":null   %>>32</option>
+              <option <%=obj.Memory === 64?"selected":null   %>>64</option>
+              <option <%=obj.Memory === 128?"selected":null   %>>128</option>
+              <option <%=obj.Memory === 256?"selected":null   %>>256</option>
             </select>
           </div>
         </div>
-          
+
         <div>
           <div class="col-md-6">
-            <label for="inputdate1" class="form-label">تاريخ الايداع :</label>
+            <label for="inputdate1" class="form-label">تاريخ الشراء :</label>
             <input
             name="First_Date"
               type="date"
@@ -225,7 +258,7 @@
 
         <div>
           <div class="col-md-6">
-            <label for="inputdate2" class="form-label">تاريخ التحصيل :</label>
+            <label for="inputdate2" class="form-label">تاريخ البيع :</label>
             <input
             name="Second_Date"
               type="date"
@@ -238,11 +271,11 @@
 
 <div>
           <div class="col-md-6">
-            <label for="inputhala" class="form-label">حالة الشيك :</label>
+            <label for="inputhala" class="form-label"> الحاله:</label>
             <select id="inputhala" class="form-select" name="Info">
               <option selected hidden disabled>Choose Info ...</option>
-              <option <%=obj.Info === "تم التحصيل"?"selected":null   %>>تم التحصيل</option>
-              <option <%=obj.Info === "مرتد"?"selected":null   %>>مرتد</option>
+              <option <%=obj.Info === "مباع"?"selected":null   %>>مباع</option>
+              <option <%=obj.Info === "غير مباع"?"selected":null   %>>غير مباع</option>
             </select>
           </div>
 
@@ -264,7 +297,7 @@
               type="button"
               class="btn btn-danger"
             >
-              Delete Customer
+              Delete Phone
             </button>
           </div>
         </form>
@@ -282,7 +315,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="exampleModalLabel">
-                Delete Customer
+                Delete Phone
               </h1>
               <button
                 type="button"
@@ -291,7 +324,7 @@
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">Are you sure you want to continue delete the customer?</div>
+            <div class="modal-body">Are you sure you want to continue delete thise Phone ?</div>
             <div class="modal-footer">
               <button
                 type="button"

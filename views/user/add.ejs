@@ -39,7 +39,7 @@
             class="container-fluid justify-content-center justify-content-md-between"
           >
             <a class="navbar-brand fw-medium fs-3 mb-1 mb-md-0"
-              >Cheques<sup> under </sup>collection </a
+              >EL<sup> M </sup>AHDY PHONE </a
             >
 
         </div>
@@ -47,11 +47,11 @@
 
         <form action="/user/add.html" method="post" class="mx-0 row gx-3 gy-4 mt-3 info" dir="rtl">
           <div class="col-md-12">
-            <label for="inputcust" class="form-label">العميل :</label>
+            <label for="inputcust" class="form-label">اسم الجهاز :</label>
             <input
             required
             name="Customer"
-              placeholder="Customer"
+              placeholder="Phone"
               type="text"
               class="form-control"
               id="inputcust"
@@ -60,8 +60,8 @@
 
        
 
-          <div class="col-md-6">
-            <label for="inputprice" class="form-label">المبلغ :</label>
+          <div class="col-md-3">
+            <label for="inputprice" class="form-label">سعر الشراء :</label>
             <input
             required
             name="price"
@@ -74,33 +74,64 @@
             />
           </div>
 
-          <div class="col-md-6">
-            <label for="inputBank" class="form-label">البنك :</label>
+          <div class="col-md-3" style="margin-right: 160px;">
+            <label for="inputprice" class="form-label">سعر البيع :</label>
+            <input
+            required
+            name="price2"
+              placeholder="price"
+              type="number"
+              class="form-control"
+              id="inputprice"
+              title=""
+              step="0.01"
+            />
+          </div>
+
+          <div class="col-md-3" style="margin-right: 100px;">
+            <label for="inputBank" class="form-label">الموديل :</label>
             <select id="inputBank" class="form-select" onchange="changeimg(this)" name="Bank" required>
-              <option selected hidden disabled>Choose Bank ...</option>
-      <% const bankarr = ["abc شركة","abc منشأة","مصر شركة","مصر فردي",
-      "القاهرة شركة","القاهرة منشأة","cib","الاسكندرية شركة","الاسكندرية شخصي",
-      "قطر","الاهلي"] %>
+              <option selected hidden disabled>Choose Model ...</option>
+      <% const bankarr = ["Opoo","Samsung","Realmy","Readmy",
+      "Iphone"] %>
 
               <% bankarr.forEach(item => { %>
                 <option value="<%= item %>"><%= item %></option>
               <% }) %>
             </select>
           </div>
-<div>
-          <div class="col-md-6">
-            <label for="inputbranch" class="form-label">الفرع :</label>
+
+<div style="display: flex; align-items: center;">
+          <div class="col-md-2">
+            <label for="inputbranch" class="form-label">الرام :</label>
             <select id="inputbranch" class="form-select" name="Branch" required>
-              <option selected hidden disabled>Choose Branch ...</option>
-              <option>نور العاشر</option>
-              <option>اكتوبر</option>
+              <option selected hidden disabled>Choose RAM ...</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>6</option>
+              <option>8</option>
+              <option>12</option>
+            </select>
+          </div>
+
+          <div class="col-md-2" style="margin-right: 190px;">
+            <label for="inputbranch" class="form-label">الذاكرة :</label>
+            <select id="inputbranch" class="form-select" name="Memory" required>
+              <option selected hidden disabled>Choose Memory ...</option>
+              <option>16</option>
+              <option>32</option>
+              <option>64</option>
+              <option>128</option>
+              <option>256</option>
             </select>
           </div>
         </div>
           
-        <div>
+        
           <div class="col-md-6">
-            <label for="inputdate1" class="form-label">تاريخ الايداع :</label>
+            <label for="inputdate1" class="form-label">تاريخ الشراء :</label>
             <input
             required
               type="date"
@@ -113,7 +144,7 @@
 
         <div>
           <div class="col-md-6">
-            <label for="inputdate2" class="form-label">تاريخ التحصيل :</label>
+            <label for="inputdate2" class="form-label">تاريخ البيع :</label>
             <input
             required
               type="date"
@@ -126,11 +157,11 @@
 
 <div>
           <div class="col-md-6">
-            <label for="inputhala" class="form-label">حالة الشيك :</label>
+            <label for="inputhala" class="form-label">حالة الجهاز :</label>
             <select id="inputhala" class="form-select" name="Info">
               <option selected hidden disabled>Choose Info ...</option>
-              <option>تم التحصيل</option>
-              <option>مرتد</option>
+              <option>مباع</option>
+              <option>غير مباع</option>
             </select>
           </div>
           

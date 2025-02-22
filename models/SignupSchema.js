@@ -9,8 +9,10 @@ const authuserSchema = new Schema({
   Data_Info:[{
     Customer: String,
     price: Number,
+    price2: Number,
     Bank: String,
-    Branch: String,
+    Branch: Number,
+    Memory: Number,
     First_Date: String,
     Second_Date: String,
     Info: String,

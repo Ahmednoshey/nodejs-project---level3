@@ -12,10 +12,12 @@ const update_Routes = (req, res) => {
   AuthUser.updateOne({ "Data_Info._id": req.params.id },{
      "Data_Info.$.Customer" : req.body.Customer,
      "Data_Info.$.price" : req.body.price,
+     "Data_Info.$.price2" : req.body.price2,
      "Data_Info.$.Bank" : req.body.Bank,
-     "Data_Info.$.Branch" : req.body.Branch,
+     "Data_Info.$.Branch" :  req.body.Branch,
+     "Data_Info.$.Memory" : req.body.Memory,
      "Data_Info.$.First_Date" : req.body.First_Date,
-     "Data_Info.$.Second_Date" : req.body.Second_Date,
+     "Data_Info.$.Second_Date" :  req.body.Second_Date,
      "Data_Info.$.Info" : req.body.Info,
      "Data_Info.$.updatedAt" : new Date(),
     })

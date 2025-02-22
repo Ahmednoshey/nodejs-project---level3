@@ -45,7 +45,8 @@
          <% } %>
 
          <% let result = 0 %>
-
+         <% let sales = 0 %>
+         <% let final = 0 %>
          <% if (arr.length > 0) { %>
           <table dir="rtl"
           id="myTable"
@@ -55,12 +56,15 @@
             <thead >
               <tr>
                 <th scope="col">ID</th>
-                <th scope="col">العميل</th>
-                <th scope="col">المبلغ</th>
-                <th scope="col">البنك</th>
-                <th scope="col">الفرع</th>
-                <th scope="col">تاريخ الايداع</th>
-                <th scope="col">تاريخ التحصيل</th>
+                <th scope="col">اسم الجهاز</th>
+                <th scope="col">الموديل</th>
+                <th scope="col">الرام</th>
+                <th scope="col">الذاكرة</th>
+                <th scope="col">سعر الشراء</th>
+                <th scope="col">تاريخ الشراء</th>
+                <th scope="col">سعر البيع</th>
+                <th scope="col">تاريخ البيع</th>
+                <th scope="col">الربح</th>
                 <th scope="col">الحاله</th>
                 <th scope="col">action</th>
               </tr>
@@ -68,14 +72,18 @@
             <tbody id="tbody2">
             <% arr.forEach((item,index) => { %>
                 <% result +=  +item.price; %>
+                  <% sales +=  +item.price2; %>
               <tr>
                 <td><%= index+1 %></td>
                 <td><%= item.Customer %></td>
-                <td><%=item.price  %></td>
                 <td><%=item.Bank  %></td>
                 <td><%=item.Branch  %></td>
+                <td><%=item.Memory  %></td>
+                <td><%=item.price  %></td>
                 <td><%=item.First_Date  %></td>
+                <td><%=item.price2  %></td>
                 <td><%=item.Second_Date  %></td>
+                <td><%=item.price2 - item.price   %></td>
                 <td><%=item.Info  %></td>
                 <td>
                   <a
@@ -114,14 +122,18 @@
             <tfoot id="tfoot2">
               <tr>
                 <td colspan="2" style="text-align: center;">الاجمالي</td>
-                <td colspan="4" style="text-align: center;"><%= result.toFixed(2) %></td>
                 <td colspan="3"></td>
+                <td style="text-align: center;"><%= result.toFixed(2) %></td>
+                <td></td>
+                <td style="text-align: center;"><%= sales.toFixed(2) %></td>
+                <td></td>
+                <td style="text-align: center;"><%=sales -  result.toFixed(2) %></td>
+                <td colspan="2"></td>
               
                 </tr>
             </tfoot>
           </table>
          <% } %>
-
       </section>
     </main>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

@@ -159,38 +159,48 @@
           class="ms-1 table mt-5 table-striped table-bordered" dir="rtl">
 <thead>
   <tr>
-    <th scope="col">العميل</th>
+    <th scope="col">اسم الجهاز</th>
     <th class="fw-normal" scope="col"><%= obj.Customer %></th>
   </tr>
 </thead>
 <tbody>
   <tr>
-    <th scope="row">المبلغ</th>
-    <td><%= obj.price %></td>
-  </tr>
-
-  <tr>
-    <th scope="row">البنك</th>
+    <th scope="row">الموديل</th>
     <td><%= obj.Bank %></td>
   </tr>
 
   <tr>
-    <th scope="row">الفرع</th>
+    <th scope="row">الرام</th>
     <td><%= obj.Branch %></td>
   </tr>
 
   <tr>
-    <th scope="row">تاريخ الايداع</th>
+    <th scope="row">الذاكره</th>
+    <td><%= obj.Memory %></td>
+  </tr>
+
+  <tr>
+    <th scope="row">سعر الشراء</th>
+    <td><%= obj.price %></td>
+  </tr>
+
+  <tr>
+    <th scope="row">تاريخ الشراء</th>
     <td><%= obj.First_Date %></td>
   </tr>
 
   <tr>
-    <th scope="row">تاريخ التحصيل</th>
+    <th scope="row">سعر البيع</th>
+    <td><%= obj.price2 %></td>
+  </tr>
+
+  <tr>
+    <th scope="row">تاريخ البيع</th>
     <td><%= obj.Second_Date %></td>
   </tr>
 
   <tr>
-    <th scope="row">حالة الشيك</th>
+    <th scope="row">الحاله</th>
     <td><%= obj.Info %></td>
   </tr>
 </tbody>
