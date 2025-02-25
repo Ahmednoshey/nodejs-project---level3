@@ -77,6 +77,7 @@ app.get("/home",requireAuth,checkIfUser,(req, res) => {
       // signup
          app.use(adduserRoutes) 
          
+        
          
               //  login
        app.use(loginRoutes)  
