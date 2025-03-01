@@ -6,10 +6,6 @@
     "start": "node app.js",
     "watch": "nodemon --ext *"
   },
-  "keywords": [],
-  "engines": {
-    "node": "22.6.0"
-  },
   "author": "",
   "license": "ISC",
   "description": "",
