@@ -90,18 +90,16 @@ app.get("/home",requireAuth,checkIfUser,(req, res) => {
       });
 
 
-
-mongoose
+  mongoose
   .connect(process.env.MONGODB_URL)
   .then(() => {
     app.listen(port, () => {
-    console.log(`http://localhost:${port}/`);
+      console.log(`http://localhost:${port}/`);
+    });
+  })
+  .catch((error) => {
+    console.log(error);
   });
-})
-  .catch((error) => {console.log(error)});
-
-
-   
 
 app.use(searchRoutes)   
 app.use(deleteRoutes)  
