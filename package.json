@@ -14,7 +14,7 @@
     "cloudinary": "^2.5.1",
     "connect-livereload": "^0.6.1",
     "cookie-parser": "^1.4.6",
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.0",
     "express-validator": "^7.2.0",
