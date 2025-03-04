@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const updateController = require("../controllers/updateController");
-const requireAuth = require('../middleware/middleware')
-const checkIfUser = require('../middleware/userData')
+const requireAuth = require('../middleware/middleware');
+const checkIfUser = require('../middleware/userData');
 
 router.get("/edit/:id",requireAuth,checkIfUser, updateController.updateRoutes);
 
